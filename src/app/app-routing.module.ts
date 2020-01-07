@@ -34,65 +34,65 @@ import { PriviledgeManagementComponent } from './application/staff/priviledge-ma
 
 
 const routes: Routes = [
-  { path: '', component: DashoardComponent, canActivate: [AuthGuard] },
+  { path: '', component: DashoardComponent,  },
   { path: 'login', component: LoginComponent },
   { path: 'admin-signup', component: AdminSignupComponent },
   {
     path: 'staff', children: [
-      { path: '', component: StaffListComponent, canActivate: [AuthGuard] },
-      { path: 'lawyer-add', component: StaffLawyerAddComponent, canActivate: [AuthGuard] },
-      { path: 'lawyer-edit/:id', component: StaffLawyerEditComponent, canActivate: [AuthGuard] },
-      { path: 'clerk-add', component: StaffClerkAddComponent, canActivate: [AuthGuard] },
-      { path: 'clerk-edit/:id', component: StaffClerkEditComponent, canActivate: [AuthGuard] },
-      { path: 'view-details/:id', component: ViewDetailsComponent, canActivate: [AuthGuard] },
-      { path: 'user-management', component: UserManagementComponent, canActivate: [AuthGuard] },
-      { path: 'previladge-management', component: PriviledgeManagementComponent, canActivate: [AuthGuard] },
+      { path: '', component: StaffListComponent,  },
+      { path: 'lawyer-add', component: StaffLawyerAddComponent,  },
+      { path: 'lawyer-edit/:id', component: StaffLawyerEditComponent,  },
+      { path: 'clerk-add', component: StaffClerkAddComponent,  },
+      { path: 'clerk-edit/:id', component: StaffClerkEditComponent,  },
+      { path: 'view-details/:id', component: ViewDetailsComponent,  },
+      { path: 'user-management', component: UserManagementComponent,  },
+      { path: 'previladge-management', component: PriviledgeManagementComponent,  },
     ],
   },
   {
     path: "client",
     children: [
-      { path: "", component: ClientListComponent, canActivate: [AuthGuard] },
-      { path: "client-add", component: ClientAddComponent, canActivate: [AuthGuard] },
-      { path: "client-view/:id", component: ClientViewComponent, canActivate: [AuthGuard] },
-      { path: "client-update/:id", component: ClientUpdaateComponent, canActivate: [AuthGuard] }
+      { path: "", component: ClientListComponent,  },
+      { path: "client-add", component: ClientAddComponent,  },
+      { path: "client-view/:id", component: ClientViewComponent,  },
+      { path: "client-update/:id", component: ClientUpdaateComponent,  }
     ]
   },
   {
     path: "case",
     children: [
-      { path: "", component: CaseListComponent, canActivate: [AuthGuard] },
-      { path: "case-add", component: CaseAddComponent, canActivate: [AuthGuard] },
+      { path: "", component: CaseListComponent,  },
+      { path: "case-add", component: CaseAddComponent,  },
       // { path: "case-view/:id", component: ViewClientComponent },
-      { path: "case-payment/:id", component: CasePaymentComponent, canActivate: [AuthGuard] },
-      { path: "case-process/:id", component: CaseProcessComponent, canActivate: [AuthGuard] },
-      { path: "case-details/:id", component: CaseDetailsComponent, canActivate: [AuthGuard] },
-      { path: "case-update/:id", component: CaseUpdateComponent, canActivate: [AuthGuard] }
+      { path: "case-payment/:id", component: CasePaymentComponent,  },
+      { path: "case-process/:id", component: CaseProcessComponent,  },
+      { path: "case-details/:id", component: CaseDetailsComponent,  },
+      { path: "case-update/:id", component: CaseUpdateComponent,  }
     ]
   },
   {
     path: "event",
     children: [
-      { path: "", component: EventCalenderComponent, canActivate: [AuthGuard] },
-      { path: "event-add", component: EventAddComponent, canActivate: [AuthGuard] },
+      { path: "", component: EventCalenderComponent,  },
+      { path: "event-add", component: EventAddComponent,  },
     ]
   },
   {
     path: "deed",
     children: [
-      { path: "", component: DeedListComponent, canActivate: [AuthGuard] },
-      { path: "deed-add", component: DeedAddComponent, canActivate: [AuthGuard] },
-      { path: "deed-view/:id", component: DeedViewComponent, canActivate: [AuthGuard] },
-      { path: "deed-update/:id", component: DeedUpdateComponent, canActivate: [AuthGuard] },
+      { path: "", component: DeedListComponent,  },
+      { path: "deed-add", component: DeedAddComponent,  },
+      { path: "deed-view/:id", component: DeedViewComponent,  },
+      { path: "deed-update/:id", component: DeedUpdateComponent,  },
     ]
   },
   {
     path: "book",
     children: [
-      { path: "", component: BookListComponent, canActivate: [AuthGuard] },
-      { path: "book-add", component: BookAddComponent, canActivate: [AuthGuard] },
-      // { path: "book-view/:id", component: DeedViewComponent, canActivate: [AuthGuard] },
-      { path: "book-update/:id", component: BookUpdateComponent, canActivate: [AuthGuard] },
+      { path: "", component: BookListComponent,  },
+      { path: "book-add", component: BookAddComponent,  },
+      // { path: "book-view/:id", component: DeedViewComponent,  },
+      { path: "book-update/:id", component: BookUpdateComponent,  },
     ]
   },
   // otherwise redirect to home

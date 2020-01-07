@@ -18,9 +18,9 @@ this.getUserDetails();
 
   async getUserDetails() {
 
-    const user: any = JSON.parse(localStorage.getItem('currentuser'));
+    // const user: any = JSON.parse(localStorage.getItem('currentuser'));
 
-    this.username = user.username;
+    // this.username = user.username;
     // console.log("this.username",user)
   }
 
