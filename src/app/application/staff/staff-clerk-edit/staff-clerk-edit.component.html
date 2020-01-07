@@ -1,0 +1,346 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+	<div class="col-sm-2 lessNavPading">
+		<app-left-menu></app-left-menu>
+	</div>
+  <div class="col-sm-10 backgroundLiange">
+    <div class="body">
+      <div class="container">
+        <div class="lft">
+          <div id="cssmenu">
+            <ul>
+              <li class="active">
+              <a routerLink='/staff/clerk-edit/{{user.id}}'>Update Clerk</a>
+              </li>
+              <li>
+                <a routerLink='/staff'>All Staff</a>
+              </li>
+              <li>
+                <a routerLink='/home'>
+                  <i class="fa fa-home"></i> &nbsp; Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div class="container">
+        <div class="formstart">
+          <div class="rconner">
+            <span class="lawyer">
+              <i class="fa fa-plus"></i>
+              <i class="fa fa-user"></i>&nbsp;&nbsp;
+              <a routerLink='/staff/lawyer-add'>Add Lawyer </a>
+            </span>
+          </div>
+          <br>
+          <br>
+
+          <h2> Update Clerk </h2>
+          <br>
+          <br>
+          <form>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+
+
+                  <label>Prefix &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <select class="form-control form-control-sm" [(ngModel)]="selectedPrefix" name="prefix">
+                    <option *ngFor="let pref of prefixType " [value]="pref">{{pref}} </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="regno">Register No&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input class="form-control form-control-sm" [ngClass]="!regno.errors?'is-valid':'is-invalid'"
+                    type="text" id="example-number-input" required minlength="2" maxlength="5" [(ngModel)]="user.regno"
+                    #regno="ngModel" name="regno" pattern="^[0-9]{1,5}$">
+                  <small class="errorMessage" *ngIf="regno.errors && regno.errors.required">register Number is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="regno.errors && regno.errors.minlength">register Number must be at
+                    least
+                    5
+                    characters long.</small>
+                  <small class="errorMessage" *ngIf="regno.errors && regno.errors.maxlength"> register Number be more
+                    than
+                    30
+                    charcters long.</small>
+                  <small class="errorMessage" *ngIf="regno.errors?.pattern"> Invalid pattern.</small>
+                </div>
+              </div>
+            </div>
+
+
+            <br>
+
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="firstname">First Name&nbsp;*&nbsp;&nbsp;:</label>
+                  <input type="text" class="form-control form-control-sm "
+                    [ngClass]="!firstname.errors?'is-valid':'is-invalid'" id="first-name" required minlength="5"
+                    maxlength="30" [(ngModel)]="user.firstname" #firstname="ngModel" name="firstname"
+                    pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$">
+
+                  <small class="errorMessage" *ngIf="firstname.errors && firstname.errors.required">First Name is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="firstname.errors && firstname.errors.minlength">First Name must be
+                    at
+                    least
+                    5 characters long.</small>
+                  <small class="errorMessage" *ngIf="firstname.errors && firstname.errors.maxlength"> First Name be more
+                    than
+                    30
+                    charcters long.</small>
+                  <small class="errorMessage" *ngIf="firstname.errors?.pattern"> Invalid pattern.</small>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="lastname">Last Name&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input type="text" class="form-control form-control-sm"
+                    [ngClass]="!lastname.errors?'is-valid':'is-invalid'" id="last-name" required minlength="5"
+                    maxlength="30" [(ngModel)]="user.lastname" #lastname="ngModel" name="lastname"
+                    pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$">
+
+                  <small class="errorMessage" *ngIf="lastname.errors && lastname.errors.required">Last Name is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="lastname.errors && lastname.errors.minlength">Last Name must be at
+                    least
+                    5
+                    characters long.</small>
+                  <small class="errorMessage" *ngIf="lastname.errors && lastname.errors.maxlength"> Last Name be more
+                    than
+                    30
+                    charcters long.</small>
+                  <small class="errorMessage" *ngIf="lastname.errors?.pattern"> Invalid pattern.</small>
+
+                </div>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label
+                    for="nic">NIC&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input type="text" class="form-control form-control-sm"
+                    [ngClass]="!nic.errors?'is-valid':'is-invalid'" required minlength="10" maxlength="12"
+                    [(ngModel)]="user.nic" #nic="ngModel" name="nic" pattern="\d{9}(V|X)$">
+                  <small class="errorMessage" *ngIf="nic.errors && nic.errors.required">NIC Number is required!</small>
+                  <small class="errorMessage" *ngIf="nic.errors && nic.errors.minlength">Incorrect length of
+                    NIC.</small>
+                  <small class="errorMessage" *ngIf="nic.errors && nic.errors.maxlength"> Incorrect length of
+                    NIC.</small>
+                  <small class="errorMessage" *ngIf="nic.errors?.pattern"> Invalid pattern.</small>
+
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Gender &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</label>
+                  <br>
+                  <input type="radio" name="gender" value="male" [(ngModel)]="user.gender"> Male &nbsp; &nbsp;
+                  <input type="radio" name="gender" value="female" [(ngModel)]="user.gender"> Female
+                  <br>
+                </div>
+              </div>
+
+
+
+            </div>
+
+            <br>
+
+            <div class="row">
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="date"> Birthday
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input class="form-control form-control-sm" type="date" value="2011-08-19" name="birthday"
+                    #birthday="ngModel" [(ngModel)]="user.birthday">
+
+
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+
+                  <label for="email">
+                    Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input type="text" class="form-control form-control-sm"
+                    [ngClass]="!email.errors?'is-valid':'is-invalid'" id="email" required minlength="10" maxlength="30"
+                    [(ngModel)]="user.email" #email="ngModel" name="email"
+                    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                  <small class="errorMessage" *ngIf="email.errors && mobileno.errors.required">Email is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="email.errors && email.errors.minlength">Email must be at least 5
+                    characters
+                    long.</small>
+                  <small class="errorMessage" *ngIf="email.errors && email.errors.maxlength"> Email be more than 30
+                    charcters
+                    long.</small>
+                  <small class="errorMessage" *ngIf="email.errors?.pattern"> Invalid pattern.</small>
+                </div>
+              </div>
+
+            </div>
+
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="address">Address 1 &nbsp;* &nbsp;&nbsp;&nbsp;:</label>
+                  <textarea class="form-control" [ngClass]="!address1.errors?'is-valid':'is-invalid'"
+                    id="exampleFormControlAddress" rows="3" required minlength="10" maxlength="35"
+                    [(ngModel)]="user.address1" #address1="ngModel" name="address1"
+                    pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$"></textarea>
+                  <small class="errorMessage" *ngIf="address1.errors && address1.errors.required">Address 1 is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="address1.errors && address1.errors.minlength">Address 1 must be at
+                    least
+                    10
+                    characters long.</small>
+                  <small class="errorMessage" *ngIf="address1.errors && address1.errors.maxlength"> Address 1 be more
+                    than
+                    30
+                    charcters long.</small>
+                  <small class="errorMessage" *ngIf="address1.errors?.pattern"> Invalid pattern.</small>
+
+
+                </div>
+              </div>
+              <br>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="address">Address 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <textarea class="form-control" [ngClass]="!address2.errors?'is-valid':'is-invalid'"
+                    id="exampleFormControlAddress2" rows="3" required minlength="10" maxlength="35"
+                    [(ngModel)]="user.address2" #address2="ngModel" name="address2"
+                    pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$"></textarea>
+                  <small class="errorMessage" *ngIf="address2.errors && address2.errors.minlength">Address 2 must be at
+                    least
+                    10
+                    characters long.</small>
+                  <small class="errorMessage" *ngIf="address2.errors && address2.errors.maxlength"> Address 2 be more
+                    than
+                    30
+                    charcters long.</small>
+                  <small class="errorMessage" *ngIf="address2.errors?.pattern"> Invalid pattern.</small>
+
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+
+
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="mobileno"> Mobile Number&nbsp;*&nbsp;:</label>
+                  <input type="text" class="form-control form-control-sm"
+                    [ngClass]="!mobileno.errors?'is-valid':'is-invalid'" id="mobileno" required minlength="10"
+                    maxlength="10" [(ngModel)]="user.mobileno" #mobileno="ngModel" name="mobileno"
+                    pattern="^[0-9]{1,10}$">
+                  <small class="errorMessage" *ngIf="mobileno.errors && mobileno.errors.required">Mobile Number is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="mobileno.errors && mobileno.errors.minlength">Mobile Number must be
+                    at
+                    least 5 characters long.</small>
+                  <small class="errorMessage" *ngIf="mobileno.errors && mobileno.errors.maxlength"> Mobile Number be
+                    more
+                    than
+                    30 charcters long.</small>
+                  <small class="errorMessage" *ngIf="mobileno.errors?.pattern"> Invalid pattern.</small>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="password">Date Joined
+                    &nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input class="form-control form-control-sm" type="date" name="date_joined" #date_joined="ngModel"
+                    [(ngModel)]="user.date_joined">
+
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="address">Work Experience &nbsp;&nbsp;&nbsp;:</label>
+                  <textarea class="form-control form-control-sm" [ngClass]="!experience.errors?'is-valid':'is-invalid'"
+                    id="exampleFormControlworkpractice_area1" rows="4" required minlength="10" maxlength="300"
+                    [(ngModel)]="user.experience" #experience="ngModel" name="experience"
+                    pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$"></textarea>
+                  <small class="errorMessage" *ngIf="experience.errors && experience.errors.minlength">practice_area of
+                    Practice
+                    must be at least 5 characters long.</small>
+                  <small class="errorMessage" *ngIf="experience.errors && experience.errors.maxlength"> practice_area of
+                    Practice be more than 30 charcters long.</small>
+                  <small class="errorMessage" *ngIf="experience.errors?.pattern"> Invalid pattern.</small>
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+
+                <div class="form-group">
+                  <label for="exampleInputFile">Upload Picture :</label>
+                  <br>
+
+                  <a target="_blank" href="1.jpg">
+
+                    <img *ngIf="previewUrl" src="{{previewUrl}}" class="rounded mb-3" width="180">
+                    <img *ngIf="!previewUrl && this.user.profileimage" src="{{this.user.profileimage}}"
+                      class="rounded mb-3" width="180">
+                  </a>
+                  <br>
+                  <br>
+                  <input name="pic" type="file" name="organisationLogo" (change)="onFileChange($event)" #fileInput
+                    required>
+                </div>
+
+              </div>
+            </div>
+            <br>
+            <br>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-success btn-md fa fa-floppy-o" (click)="addNewLawyer()">
+                &nbsp;&nbsp;Save
+              </button>
+              <!-- <button type="button" class="btn btn-success btn-md fa fa-pencil">&nbsp;&nbsp;Update </button> -->
+              <button type="button" class="btn btn-secondary btn-md fa fa-eraser" (click)="clear()">&nbsp;Clear
+              </button>
+              <!-- <button type="button" class="btn btn-danger btn-md fa fa-trash">&nbsp;&nbsp;Delete</button> -->
+            </div>
+            <br>
+            <br>
+            <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,266 @@
+/* FontAwesome for working BootSnippet :> */
+
+
+.body {
+    background-image: url("/assets/staff/ik.jpg");
+    padding-top: 60px;
+    text-align: left;
+    font-size: 15px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+    
+    .btn-primary:hover,
+    .btn-primary:focus {
+        background-color: #108d6f;
+        border-color: #108d6f;
+        box-shadow: none;
+        outline: none;
+    }
+    
+    .btn-primary {
+        color: #fff;
+        background-color: #007b5e;
+        border-color: #007b5e;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    section .section-title {
+        text-align: center;
+        color: rgb(114, 51, 98);
+        margin-bottom: 50px;
+        text-transform: uppercase;
+       
+    }
+    
+    
+    #team .card {
+        border: none;
+        background: rgb(235, 220, 220);
+    }
+    
+    .image-flip:hover .backside,
+    .image-flip.hover .backside {
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+        border-radius: .25rem;
+    }
+    
+    .image-flip:hover .frontside,
+    .image-flip.hover .frontside {
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+    }
+    
+    .mainflip {
+        -webkit-transition: 1s;
+        -webkit-transform-style: preserve-3d;
+        -ms-transition: 1s;
+        -moz-transition: 1s;
+        -moz-transform: perspective(1000px);
+        -moz-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transition: 1s;
+        transform-style: preserve-3d;
+        position: relative;
+    }
+    
+    .frontside {
+        position: relative;
+        -webkit-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        z-index: 2;
+        margin-bottom: 30px;
+    }
+    
+    .backside {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: white;
+        -webkit-transform: rotateY(-180deg);
+        -moz-transform: rotateY(-180deg);
+        -o-transform: rotateY(-180deg);
+        -ms-transform: rotateY(-180deg);
+        transform: rotateY(-180deg);
+        -webkit-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        -moz-box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+        box-shadow: 5px 7px 9px -4px rgb(158, 158, 158);
+    }
+    
+    .frontside,
+    .backside {
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transition: 1s;
+        -webkit-transform-style: preserve-3d;
+        -moz-transition: 1s;
+        -moz-transform-style: preserve-3d;
+        -o-transition: 1s;
+        -o-transform-style: preserve-3d;
+        -ms-transition: 1s;
+        -ms-transform-style: preserve-3d;
+        transition: 1s;
+        transform-style: preserve-3d;
+    }
+    
+    .frontside .card,
+    .backside .card {
+        min-height: 312px;
+    }
+    
+    .backside .card a {
+        font-size: 18px;
+        color: rgb(114, 51, 98) !important;
+    }
+    
+    .frontside .card .card-title,
+    .backside .card .card-title {
+        color: rgb(114, 51, 98)!important;
+    }
+    
+    .frontside .card .card-body img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+    
+    
+    
+    
+    .lft{ 
+        
+        float:left;
+        text-align:lft;
+    
+        }
+        
+        .rconner{ 
+        
+                float:right;
+                text-align:lft;
+             
+    
+        }
+    .container #cssmenu{
+        float: left;
+    }
+    #cssmenu ul {
+        display: flex; /* A key part of our menu, displays items side by side, and allows reversing them */
+        flex-direction: row-reverse; /* Reverse the items */
+    }
+    
+    #cssmenu-container {
+        height: 220px;
+        background-color: #CEE3F8;
+    }
+    
+    /* Menu container */
+    #cssmenu {
+        display: inline-block; /* The menu will have width as needed, not 100% */
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: Helvetica, sans-serif;
+        font-size: 14px;
+        line-height: 1em;
+        border-radius: 2px; /* Little curvature in the borders */
+        overflow: hidden; /* Hide everything that overflows, like shadows */
+        align-items: flex-start;
+    }
+    
+    /* Icons */
+    #cssmenu i {
+        transform: scale(1.4);
+    }
+    /* Menu */
+    #cssmenu ul {
+        display: flex; /* A key part of our menu, displays items side by side, and allows reversing them */
+        flex-direction: row-reverse; /* Reverse the items */
+        /* Reset styles, overwrite browser defaults */
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #cssmenu ul li {
+        margin: 0;
+    }
+    
+    
+    #cssmenu ul li a {
+        display: inline-block;
+        font-family: sans-serif;
+        font-size: 0.9em;
+        font-weight: 600;
+        padding: 12px 30px 12px 45px; /* Adjusting padding to get the proper space */
+        margin-left: -20px; /* Pull the items to the left, so the rounded right side will get over them */
+        color: white;
+        background-color: rgb(150, 88, 102);
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: 0 100px 100px 0; /* Get the right side rounded */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Apply the shadow */
+    }
+    /* Hover event */
+    #cssmenu ul li:hover a {
+        background-color: rgb(114, 51, 98);
+    }
+    
+    /* Remove the shadow for first item, last in the right side when it gets reversed */
+    #cssmenu ul li:first-child a {
+        box-shadow: none;
+    }
+    
+    /* Active item is a bit different */
+    #cssmenu ul li.active a {
+        color: white;
+        background-color: rgb(114, 51, 98);
+    }
+    
+    /* Remove the shadow for the active's next item, to match the design more accurately */
+    #cssmenu ul li.active + li a {
+        box-shadow: none;
+    }
+    a {
+        color: black;
+        cursor:pointer;
+    }
+    
+    .formstart{
+    
+        border-style: groove;
+        border-width: 2px;
+        border-color:black;
+        box-sizing: border-box; 
+        padding: 80px;   
+        border-radius: 15px; 
+        box-shadow: 5px 5px;
+        align-content: center;
+        margin: auto;
+        background: #FFF0F5;
+    }
+    button{
+      
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 8px; 
+        height: 35px;
+      
+    }
+    button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }

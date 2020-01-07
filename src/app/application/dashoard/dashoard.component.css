@@ -1,0 +1,123 @@
+.body{padding-top: 60px;
+	text-align: left;
+	font-size: 15px;
+	background-image: url("/assets/case/ik.jpg") ; 
+	background-repeat: no-repeat;
+	background-size: cover;
+	  }
+
+.card{margin-bottom: 15px; border-radius:5px; box-shadow: 0 4px 5px rgba(0,0,0,.1);height: 120px; width: 250px;   }
+.panel{margin-bottom: 15px; border-radius:5px; box-shadow: 0 4px 5px rgba(0,0,0,.1);height: 350px; width: 350px; background: white;  }
+.panel1{margin-bottom: 15px; border-radius:5px; box-shadow: 0 4px 5px rgba(0,0,0,.1);height: 350px; width: 350px; background: white;  }
+
+
+.card1{background: rgb(119, 119, 163) ;border-radius:5px;}
+.card1:hover{background:rgb(235, 220, 220);}
+
+.card2{background: rgb(76, 109, 109) ;border-radius:5px;}
+.card2:hover{background:rgb(235, 220, 220);}
+
+.card3{background: rgb(190, 96, 96) ;border-radius:5px;}
+.card3:hover{background:rgb(235, 220, 220);}
+
+.card4{background: rgb(202, 152, 60);border-radius:5px;}
+.card4:hover{background:rgb(235, 220, 220);}
+
+
+
+
+.header-top{box-shadow: 0 3px 5px rgba(0,0,0,.1)}
+.leftmenutrigger, .navbar-nav li a .shortmenu{display: none}
+.card-title{ font-size: 28px}
+
+.heading{
+
+	border-style: groove;
+	text-align: center;
+	border-width: 2px;
+	border-color:black;
+	width: 1100px;
+	height: 50px;
+	border-radius:  15px;
+	box-shadow: 5px 5px;
+	align-items: center;
+	background: #FFF0F5;
+  
+}
+.c1{
+    color:white;
+text-weight: 200px;
+font-size: 24px;
+text-align: right;
+
+}
+.c2{
+    color:white;
+    text-weight: 200px;
+    font-size: 24px;
+    text-align: right;
+}
+.c3{
+    color:white;
+    text-weight: 200px;
+    font-size: 24px;
+    text-align: right;
+}
+
+.c4{
+    color:white;
+    text-weight: 200px;
+    font-size: 24px;
+    text-align: right;
+}
+.card-title1{
+
+	border-style: solid;
+	text-align: center;
+	font-size: 28px;
+	color: black;
+	border-width: 1px;
+	background: rgb(202, 152, 60);
+	height: 50px;
+	width: 350px;
+}
+
+.card-title2{
+
+	border-style: solid;
+	text-align: center;
+	font-size: 28px;
+	color: black;
+	border-width: 1px;
+	background: rgb(119, 119, 163);
+	height: 50px;
+	width: 350px;
+}
+
+.card-title3{
+
+	border-style: solid;
+	text-align: center;
+	font-size: 28px;
+	color: black;
+	border-width: 1px;
+	background: rgb(76, 109, 109);
+	height: 50px;
+	width: 350px;
+}
+p{
+
+text-align: left;
+
+}
+h2{
+	text-align: center;
+	color: rgb(114, 51, 98);
+	margin-left: 20px;
+	
+	
+}
+img{height: 220px; width: 330px;}
+
+
+

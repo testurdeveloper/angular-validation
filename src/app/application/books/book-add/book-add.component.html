@@ -1,0 +1,152 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+  <div class="col-sm-2 lessNavPading">
+    <app-left-menu></app-left-menu>
+  </div>
+  <div class="col-sm-10 backgroundLiange">
+    <div class="body">
+      <div class="container">
+        <div class="lft">
+          <div id="cssmenu">
+
+            <ul>
+              <li class="active">
+                <a routerLink='/addbooks'>Add Law Books</a>
+              </li>
+              <li>
+                <a routerLink='/booklist'>
+                  Law Books</a>
+              </li>
+              <li>
+                <a routerLink='/home'>
+                  <i class="fa fa-home"></i> Home</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+
+      <div class="container">
+        <div class="formstart">
+          <H2>New Book</H2>
+          <br>
+          <br>
+          <form>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+									<label for="firstname">Name&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<input type="text" class="form-control form-control-sm "
+										[ngClass]="!firstname.errors?'is-valid':'is-invalid'" id="name" required
+										minlength="5" maxlength="30" 
+										[(ngModel)]="book.name" #firstname="ngModel" name="firstname"
+										pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$">
+									<small class="errorMessage"
+										*ngIf="firstname.errors && firstname.errors.required">Name is
+										required!</small>
+									<small class="errorMessage"
+										*ngIf="firstname.errors && firstname.errors.minlength">Name must be at
+										least 5 characters long.</small>
+									<small class="errorMessage" *ngIf="firstname.errors && firstname.errors.maxlength">
+										First Name be more than 30 charcters long.</small>
+									<small class="errorMessage" *ngIf="firstname.errors?.pattern"> Invalid
+										pattern.</small>
+								</div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+
+
+                    <label>Classfication :</label>
+  
+                    <select class="form-control form-control-sm" [(ngModel)]="book.classification"
+                      id="cassification-id" #classification="ngModel" name="classification">
+                      <option *ngFor="let clas of classificationType " [value]="clas">{{clas}} </option>
+                    </select>
+  
+  
+                    <!--<select class="form-control form-control-sm">
+                  <option selected>Choose...</option>
+                  <option value="1">Sri Lanka Law Reports</option>
+                  <option value="2">New Law Reports</option>
+                  <option value="3">Supreme Court Judgement</option>
+                  <option value="4">Court of Appeal Judgement</option>
+            
+                </select>-->
+                  </div>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+
+                  <label for="year">Year:</label>
+                  <input class="form-control form-control-sm" [ngClass]="!year.errors?'is-valid':'is-invalid'"
+                    type="text"  id="year-input" required minlength="4" maxlength="4" [(ngModel)]="book.year"
+                    #year="ngModel" name="year" pattern="^[0-9]{1,5}$">
+                  <small class="errorMessage" *ngIf="year.errors && year.errors.required">Publication Year is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="year.errors && year.errors.minlength">Publication Year must be at
+                    least 4 characters long.</small>
+                  <small class="errorMessage" *ngIf="year.errors && year.errors.maxlength"> Publication Year be more
+                    than 4 charcters long.</small>
+                  <small class="errorMessage" *ngIf="year.errors?.pattern"> Invalid pattern.</small>
+
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+
+                  <label for="volume">Volume:</label>
+                  <input class="form-control form-control-sm" [ngClass]="!volume.errors?'is-valid':'is-invalid'"
+                    type="text" id="volume-input" required minlength="2" maxlength="2"
+                    [(ngModel)]="book.volume" #volume="ngModel" name="volume" pattern="^[0-9]{1,5}$"
+                   >
+                  <small class="errorMessage" *ngIf="volume.errors && volume.errors.required">Publication volume is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="volume.errors && volume.errors.minlength">Publication volume must
+                    be at least 2 characters long.</small>
+                  <small class="errorMessage" *ngIf="volume.errors && volume.errors.maxlength"> Publication volume be
+                    more than 2 charcters long.</small>
+                  <small class="errorMessage" *ngIf="volume.errors?.pattern"> Invalid pattern.</small>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="date"> Added Date:</label>
+                  <input class="form-control form-control-sm" type="date" id="date-input" 
+                    [(ngModel)]="book.addeddate" #addeddate="ngModel" name="addeddate">
+
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                
+              </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-success btn-md fa fa-floppy-o" (click)="saveDetails()"> &nbsp;&nbsp;
+                Save </button>
+              <button type="button" class="btn btn-secondary btn-md fa fa-eraser" (click)="clear()">&nbsp;Clear</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,252 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+  <div class="col-sm-2 lessNavPading">
+    <app-left-menu></app-left-menu>
+  </div>
+  <div class="col-sm-10 backgroundLiange">
+    <div class="body">
+      <div class="container">
+        <div class="lft">
+          <div id="cssmenu">
+            <ul>
+              <li class="active">
+                <a routerLink='/staff/clerk-add'>User management</a>
+              </li>
+              <li>
+                <a routerLink='/staff'>All Staff</a>
+              </li>
+              <li>
+                <a routerLink='/home'>
+                  <i class="fa fa-home"></i> &nbsp; Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <div class="formstart">
+          <h2>Priviledge Management</h2>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label for="staticEmail" class="col-sm-2 col-form-label">Role</label>
+                <div class="col-sm-10">
+                  <select class="form-control" id="exampleFormControlSelect1" (change)="changeRole()"  [(ngModel)]="feature.roleids" #roleids="ngModel" name="roleids">
+                    <option *ngFor="let prptype of roles" [value]="prptype.id">{{prptype.name}} </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div>
+                <br>
+                <h4>Staff Management</h4>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.userManagement_View" #userManagement_View="ngModel" name="userManagement_View">
+                  <label class="form-check-label" for="inlineCheckbox1">View</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.userManagement_create" #userManagement_create="ngModel" name="userManagement_create">
+                  <label class="form-check-label" for="inlineCheckbox2">Create</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.userManagement_Update" #userManagement_Update="ngModel" name="userManagement_Update" >
+                  <label class="form-check-label" for="inlineCheckbox3">Update</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.userManagement_Delete" #userManagement_Delete="ngModel" name="userManagement_Delete" >
+                  <label class="form-check-label" for="inlineCheckbox3">Delete</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div>
+                <br>
+                <h4>Client Management</h4>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.clientManagement_View" #clientManagement_View="ngModel" name="clientManagement_View">
+                  <label class="form-check-label" for="inlineCheckbox1">View</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.clientManagement_create" #clientManagement_create="ngModel" name="clientManagement_create">
+                  <label class="form-check-label" for="inlineCheckbox2">Create</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.clientManagement_Update" #clientManagement_Update="ngModel" name="clientManagement_Update" >
+                  <label class="form-check-label" for="inlineCheckbox3">Update</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.clientManagement_Delete" #clientManagement_Delete="ngModel" name="clientManagement_Delete" >
+                  <label class="form-check-label" for="inlineCheckbox3">Delete</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div>
+                <br>
+                <h4>Case Management</h4>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.caseManagement_View" #caseManagement_View="ngModel" name="caseManagement_View">
+                  <label class="form-check-label" for="inlineCheckbox1">View</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.caseManagement_create" #caseManagement_create="ngModel" name="caseManagement_create">
+                  <label class="form-check-label" for="inlineCheckbox2">Create</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.caseManagement_Update" #caseManagement_Update="ngModel" name="caseManagement_Update" >
+                  <label class="form-check-label" for="inlineCheckbox3">Update</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.caseManagement_Delete" #caseManagement_Delete="ngModel" name="caseManagement_Delete" >
+                  <label class="form-check-label" for="inlineCheckbox3">Delete</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div>
+                <br>
+                <h4>Deed Management</h4>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.deedManagement_View" #deedManagement_View="ngModel" name="deedManagement_View">
+                  <label class="form-check-label" for="inlineCheckbox1">View</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.deedManagement_create" #deedManagement_create="ngModel" name="deedManagement_create">
+                  <label class="form-check-label" for="inlineCheckbox2">Create</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.deedManagement_Update" #deedManagement_Update="ngModel" name="deedManagement_Update" >
+                  <label class="form-check-label" for="inlineCheckbox3">Update</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.deedManagement_Delete" #deedManagement_Delete="ngModel" name="deedManagement_Delete" >
+                  <label class="form-check-label" for="inlineCheckbox3">Delete</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div>
+                <br>
+                <h4>Event Management</h4>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.eventManagement_View" #eventManagement_View="ngModel" name="eventManagement_View">
+                  <label class="form-check-label" for="inlineCheckbox1">View</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.eventManagement_create" #eventManagement_create="ngModel" name="eventManagement_create">
+                  <label class="form-check-label" for="inlineCheckbox2">Create</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.eventManagement_Update" #eventManagement_Update="ngModel" name="eventManagement_Update" >
+                  <label class="form-check-label" for="inlineCheckbox3">Update</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.eventManagement_Delete" #eventManagement_Delete="ngModel" name="eventManagement_Delete" >
+                  <label class="form-check-label" for="inlineCheckbox3">Delete</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div>
+                <br>
+                <h4>features Management</h4>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.booksManagement_View" #booksManagement_View="ngModel" name="booksManagement_View">
+                  <label class="form-check-label" for="inlineCheckbox1">View</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.booksManagement_create" #booksManagement_create="ngModel" name="booksManagement_create">
+                  <label class="form-check-label" for="inlineCheckbox2">Create</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.booksManagement_Update" #booksManagement_Update="ngModel" name="booksManagement_Update" >
+                  <label class="form-check-label" for="inlineCheckbox3">Update</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.booksManagement_Delete" #booksManagement_Delete="ngModel" name="booksManagement_Delete" >
+                  <label class="form-check-label" for="inlineCheckbox3">Delete</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div>
+                <br>
+                <h4>Report</h4>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.reportManagement_View" #reportManagement_View="ngModel" name="reportManagement_View">
+                  <label class="form-check-label" for="inlineCheckbox1">View</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.reportManagement_create" #reportManagement_create="ngModel" name="reportManagement_create">
+                  <label class="form-check-label" for="inlineCheckbox2">Create</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.reportManagement_Update" #reportManagement_Update="ngModel" name="reportManagement_Update" >
+                  <label class="form-check-label" for="inlineCheckbox3">Update</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.reportManagement_Delete" #reportManagement_Delete="ngModel" name="reportManagement_Delete" >
+                  <label class="form-check-label" for="inlineCheckbox3">Delete</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div>
+                <br>
+                <h4>Backup</h4>
+                <br>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.backupManagement_View" #backupManagement_View="ngModel" name="backupManagement_View">
+                  <label class="form-check-label" for="inlineCheckbox1">View</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.backupManagement_create" #backupManagement_create="ngModel" name="backupManagement_create">
+                  <label class="form-check-label" for="inlineCheckbox2">Create</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.backupManagement_Update" #backupManagement_Update="ngModel" name="backupManagement_Update" >
+                  <label class="form-check-label" for="inlineCheckbox3">Update</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="feature.backupManagement_Delete" #backupManagement_Delete="ngModel" name="backupManagement_Delete" >
+                  <label class="form-check-label" for="inlineCheckbox3">Delete</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-sm-6">
+              <button class="btn btn-primary" (click)="save()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="container">
+      </div>
+    </div>
+
+  </div>
+</div>

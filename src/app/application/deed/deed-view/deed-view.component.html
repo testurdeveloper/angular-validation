@@ -1,0 +1,196 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+	<div class="col-sm-2 lessNavPading">
+		<app-left-menu></app-left-menu>
+	</div>
+  <div class="col-sm-10 backgroundLiange">
+    <div class="body">
+      <div class="container">
+        <div class="lft">
+          <div id="cssmenu">
+    
+            <ul>
+              <li class="active">
+                <a href="#">Details Form</a>
+              </li>
+              <li>
+                <a routerLink='/dlist'>Deed</a>
+              </li>
+              <li>
+                <a routerLink='/home'>
+                  <i class="fa fa-home"></i>&nbsp; Home</a>
+              </li>
+    
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    
+    
+    
+      <div class="container">
+        <div class="formstart">
+          <h2> Deed Details </h2>
+          <br>
+          <br>
+          <form>
+    
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+    
+                  <span for="deedno">Deed No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="deedno">&nbsp;&nbsp;{{deeds.deedno}} </label>
+                </div>
+              </div>
+    
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="caseno">Client Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="caseno">&nbsp;&nbsp;{{deeds.client}} </label>
+                </div>
+              </div>
+            </div>
+    
+    
+            <br>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="casetitle">Date Opend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="casetitle">&nbsp;&nbsp;{{deeds.dateopend}} </label>
+                </div>
+              </div>
+    
+              <div class="col-lg-6">
+                <div class="form-group">
+    
+                  <span for="oppsiteclient">Amount&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="oppsiteclient">&nbsp;&nbsp;{{deeds.deedfee}} </label>
+                </div>
+              </div>
+            </div>
+            <br>
+    
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+    
+                  <span for="oppositephone">Property Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="oppositephone">&nbsp;&nbsp;{{deeds.propertytype}} </label>
+                </div>
+              </div>
+    
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="oppsitelawyer">Deed Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="oppsitelawyer">&nbsp;&nbsp;{{deeds.deedtype}} </label>
+                </div>
+              </div>
+            </div>
+    
+            <br>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="address">Daybook No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="address">&nbsp;&nbsp;{{deeds.daybookno}} </label>
+                </div>
+              </div>
+    
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="oppositelphone">Daybook Date&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="oppositelphone">&nbsp;&nbsp;{{deeds.daybookdate}} </label>
+                </div>
+              </div>
+            </div>
+    
+            <br>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+    
+    
+                  <span for="court">Recieved Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+                  </span>
+                  <label id="court">&nbsp;&nbsp;{{deeds.recievedate}} </label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+    
+    
+                  <span for="court"> Property Address :</span>
+                  <label id="court">&nbsp;&nbsp;{{deeds.propertyaddress}} </label>
+                </div>
+              </div>
+    
+    
+            </div>
+    
+            <br>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="oppositelphone">Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="oppositelphone">&nbsp;&nbsp;{{deeds.status}} </label>
+                </div>
+              </div>
+            </div>
+    
+            <br>
+            <br>
+            <label>
+              <h1>
+                <u>Opposite Client Informations</u>
+              </h1>
+            </label>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="address"> Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="address">&nbsp;&nbsp;{{deeds.oppositeclientname}} </label>
+                </div>
+              </div>
+    
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="address">Phone Number&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="address">&nbsp;&nbsp;{{deeds.oppositeclientphone}} </label>
+                </div>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <span for="oppositelphone">Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+                  <label id="oppositelphone">&nbsp;&nbsp;{{deeds.oppositeclientaddress}}</label>
+                </div>
+              </div>
+            </div>
+    
+            <br>
+    
+            <div class="btn-group">
+              <button type="button" class="btn btn-success btn-md fa fa-pencil" routerLink="/deed/deed-update/{{deeds.id}}"> &nbsp;Update &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+              <button type="button" class="btn btn-danger btn-md fa fa-trash" (click)="deleteClient(deeds)">&nbsp;&nbsp; Delete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    
+    
+            </div>
+          </form>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,216 @@
+
+.body{
+
+	padding-top: 60px;
+	text-align: left;
+	font-size: 15px;
+	
+	
+
+	
+	}
+
+	.formstart{
+width: 100%;
+		border-style: groove;
+		border-width: 2px;
+		border-color:black;
+		margin-top: 25px;
+		box-sizing: border-box; 
+		padding: 80px;   
+		border-radius: 15px; 
+		box-shadow: 5px 5px;
+		align-content: center;
+		margin: auto;
+		background: #FFF0F5;
+
+	}
+
+
+	.heading{
+
+		border-style: groove;
+		text-align: center;
+		border-width: 2px;
+		border-color:black;
+		width: 1100px;
+		height: 50px;
+		border-radius:  15px;
+		box-shadow: 5px 5px;
+		align-items: center;
+
+
+	}
+/*	input[type=date] {
+		background-color: rgb(235, 220, 220);
+		color: rgb(0, 0, 0);
+	}
+	select{
+
+		background-color: rgb(235, 220, 220);
+
+	}
+	input[type=text] {
+		background-color: rgb(235, 220, 220);
+		color: rgb(0, 0, 0);
+	}
+	input[type=email] {
+		background-color: rgb(235, 220, 220);
+		color: rgb(0, 0, 0);
+	}
+	textarea {
+		background-color: rgb(235, 220, 220);
+		color: rgb(0, 0, 0);
+	} */
+
+	.lft{ 
+	
+		float:left;
+		text-align:lft;
+	
+		}
+
+
+	.container #cssmenu{
+		float: left;
+	}
+	
+	
+	#cssmenu ul {
+		display: flex; /* A key part of our menu, displays items side by side, and allows reversing them */
+		flex-direction: row-reverse; /* Reverse the items */
+	}
+	
+	#cssmenu-container {
+		height: 220px;
+		background-color: #CEE3F8;
+	}
+	
+	/* Menu container */
+	#cssmenu {
+		display: inline-block; /* The menu will have width as needed, not 100% */
+		position: relative;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		font-family: Helvetica, sans-serif;
+		font-size: 14px;
+		line-height: 1em;
+		border-radius: 2px; /* Little curvature in the borders */
+		overflow: hidden; /* Hide everything that overflows, like shadows */
+		align-items: flex-start;
+	}
+	
+	/* Icons */
+	#cssmenu i {
+		transform: scale(1.4);
+	}
+	/* Menu */
+	#cssmenu ul {
+		display: flex; /* A key part of our menu, displays items side by side, and allows reversing them */
+		flex-direction: row-reverse; /* Reverse the items */
+		/* Reset styles, overwrite browser defaults */
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	
+	#cssmenu ul li {
+		margin: 0;
+	}
+	
+	
+	#cssmenu ul li a {
+		display: inline-block;
+		font-family: sans-serif;
+		font-size: 0.9em;
+		font-weight: 600;
+		padding: 12px 30px 12px 45px; /* Adjusting padding to get the proper space */
+		margin-left: -20px; /* Pull the items to the left, so the rounded right side will get over them */
+		color: white;
+		background-color: rgb(150, 88, 102);
+		text-decoration: none;
+		text-transform: uppercase;
+		border-radius: 0 100px 100px 0; /* Get the right side rounded */
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* Apply the shadow */
+	}
+	/* Hover event */
+	#cssmenu ul li:hover a {
+		background-color: rgb(114, 51, 98);
+	}
+	
+	/* Remove the shadow for first item, last in the right side when it gets reversed */
+	#cssmenu ul li:first-child a {
+		box-shadow: none;
+	}
+	
+	/* Active item is a bit different */
+	#cssmenu ul li.active a {
+		color: white;
+		background-color: rgb(114, 51, 98);
+	}
+	
+	/* Remove the shadow for the active's next item, to match the design more accurately */
+	#cssmenu ul li.active + li a {
+		box-shadow: none;
+	}
+
+
+
+
+h2{
+	text-align: center;
+	color: rgb(114, 51, 98);
+	margin-left: 20px;
+
+}
+
+.breadcrumb{
+	background: white;
+	
+	}
+
+	
+label{
+	font-weight: 700;
+
+}
+
+img {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 150px; /* Set a small width */
+}
+
+/* Add a hover effect (blue shadow) */
+.container.img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.ng-valid[required], .ng-valid.required{
+    border-left: 7px solid #42A948; /* Green */
+}
+.ng-invalid:not(form){
+    /* Red */
+
+}
+
+.errorMessage{
+    color: red;
+}
+
+button{
+	padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 8px; 
+    height: 35px;
+}
+button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+
+

@@ -1,0 +1,18 @@
+interface Clerk {
+    id?: number,
+    title?: string,
+    regno?: number,
+    firstname?: string,
+    lastname?: string,    
+    nic?: string,
+    gender?: string,
+    birthday?: Date,
+    email?: string,
+    mobileno?: string,
+    address1?: string,
+    address2?: string,
+    date_joined?: Date,
+    experience?: string,
+    profileimage?: any,
+    designation?: string,
+}

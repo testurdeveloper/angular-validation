@@ -1,0 +1,134 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+	<div class="col-sm-2 lessNavPading">
+		<app-left-menu></app-left-menu>
+	</div>
+    <div class="col-sm-10 backgroundLiange">
+
+        <div class="body">
+            <div class="container">
+                <div class="lft">
+                    <div id="cssmenu">
+
+                        <ul>
+                            <li class="active">
+                                <a routerLink='/casepayment'>Payment Form</a>
+                            </li>
+                            <li>
+                                <a routerLink='/addcase'>Add Case</a>
+                            </li>
+                            <li>
+                                <a routerLink='/home'>
+                                    <i class="fa fa-home"></i> &nbsp;Home</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="container">
+                <div class="formstart">
+                    <h2> Case Payment </h2>
+                    <br>
+                    <br>
+
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+
+                                <label for="clientname">Client Name&nbsp;&nbsp;&nbsp;:</label>
+                                <input type="text" class="form-control form-control-sm" [(ngModel)]="user.clientname"
+                                    #casename="ngModel" name="casename" disabled>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="caseno">Case No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                                <input type="text" class="form-control form-control-sm" [(ngModel)]="user.caseno"
+                                    #caseno="ngModel" name="caseno" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="cost">Amount&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                                    &nbsp;Rs.</label>
+                                <input class="form-control form-control-sm" type="text" required minlength="5"
+                                    maxlength="30" [(ngModel)]="payment.amount" #firmregno="ngModel" name="firmregno"
+                                    pattern="^[0-9]{1,5}$">
+                                <!-- <small class="errorMessage" *ngIf="amounts.errors && amounts.errors.required">Register
+                                    Number is required!</small>
+                                <small class="errorMessage" *ngIf="amounts.errors && amounts.errors.minlength">Register
+                                    Number must be at least 3 characters long.</small>
+                                <small class="errorMessage" *ngIf="amounts.errors && amounts.errors.maxlength"> Register
+                                    Number be more than 6 charcters long.</small>
+                                <small class="errorMessage" *ngIf="amounts.errors?.pattern"> Invalid pattern.</small> -->
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="date"> Date Opend&nbsp;*&nbsp;:</label>
+                                <input class="form-control form-control-sm" type="date" [(ngModel)]="payment.dateopened"
+                                    #dateno="ngModel" name="dateno">
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+
+                                <label for="address">Description &nbsp;&nbsp;:</label>
+                                <textarea class="form-control"
+                                    id="exampleFormControlTextarea1" rows="3" required minlength="10" maxlength="35"
+                                     [(ngModel)]="payment.description"
+                                    #description="ngModel" name="description"
+                                    pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$"></textarea>
+                                <small class="errorMessage" *ngIf="description.errors && description.errors.minlength">
+                                    Description must be at least 10 characters long.</small>
+                                <small class="errorMessage" *ngIf="description.errors && description.errors.maxlength">
+                                    Description be more than 30 charcters long.</small>
+                                <small class="errorMessage" *ngIf="description.errors?.pattern"> Invalid
+                                    pattern.</small>
+
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+
+
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-success btn-md fa fa-floppy-o"
+                            (click)="navigateTocaseprocess()"> &nbsp;Save
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                        <button type="button" class="btn btn-secondary btn-md fa fa-eraser">&nbsp;&nbsp;Clear
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+                    </div>
+                    <br>
+                    <br>
+
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

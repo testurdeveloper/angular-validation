@@ -1,0 +1,148 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+    <div class="col-sm-2 lessNavPading">
+        <app-left-menu></app-left-menu>
+    </div>
+    <div class="col-sm-10 backgroundLiange">
+        <div class="body">
+            <div class="container">
+                <div class="lft">
+                    <div id="cssmenu">
+
+                        <ul>
+                            <li class="active">
+                                <a href="#">Event Form</a>
+                            </li>
+                            <li>
+                                <a href="#">All Events</a>
+                            </li>
+                            <li>
+                                <a routerLink='/home'>
+                                    <i class="fa fa-home"></i> &nbsp;Home</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="container">
+                <div class="formstart">
+                    <h2> Add Event </h2>
+                    <br>
+                    <br>
+                    <form>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+
+                                    <label for="eventname">Event Name&nbsp;&nbsp;&nbsp;:</label>
+                                    <input type="text" class="form-control form-control-sm "  [(ngModel)]="newevent.eventname" #eventname="ngModel" name="eventname"  [ngClass]="!eventname.errors?'is-valid':'is-invalid'" id="eventname" required minlength="5" maxlength="30"pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$">
+                                    <small class="errorMessage" *ngIf="eventname.errors && eventname.errors.required">Event Name is required!</small>
+                                    <small class="errorMessage" *ngIf="eventname.errors && eventname.errors.minlength">Event Name must be at least 5 characters long.</small>
+                                    <small class="errorMessage" *ngIf="eventname.errors && eventname.errors.maxlength"> Event Name be more than 30 charcters long.</small>
+                                    <small class="errorMessage" *ngIf="eventname.errors?.pattern"> Invalid pattern.</small>
+
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="caseno"> Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                                    <input type="Date" class="form-control form-control-sm" id="name" placeholder=" " [(ngModel)]="newevent.date" #eventdate="ngModel" name="eventdate">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+
+                                    <label for="caseno"> Start Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                                    <input type="Time" class="form-control form-control-sm" id="starttime" [(ngModel)]="newevent.starttime" #eventdate="ngModel" name="eventdate">
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="priority">Priority&nbsp;&nbsp;&nbsp;:</label>
+
+                                    <!-- <input class="form-control form-control-sm" [ngClass]="!priority.errors?'is-valid':'is-invalid'" type="text" id="example-number-input" required minlength="2" maxlength="4" [(ngModel)]="event.priority" #priority="ngModel" name="priority" pattern="^[0-9]{1,5}$"
+                                        placeholder="12">
+                                    <small class="errorMessage" *ngIf="priority.errors && priority.errors.required">Priority is required!</small>
+                                    <small class="errorMessage" *ngIf="priority.errors && priority.errors.minlength">Priority must be at least 2 characters long.</small>
+                                    <small class="errorMessage" *ngIf="priority.errors && priority.errors.maxlength"> Priority be more than 4 charcters long.</small>
+                                    <small class="errorMessage" *ngIf="priority.errors?.pattern"> Invalid pattern.</small> -->
+
+
+                                    <select class="form-control form-control-sm" [(ngModel)]="newevent.priority"
+									#priority="ngModel" name="priority" required>
+									<option selected disabled>--Choose--</option>
+									<option value="Low">Low</option>
+									<option value="Medium">Medium</option>
+									<option value="High">High</option>
+								</select>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+
+                                    <label for="address">Description &nbsp;&nbsp;:</label>
+                                    <textarea class="form-control" [ngClass]="!description.errors?'is-valid':'is-invalid'" id="exampleFormControlTextarea2" rows="3" required minlength="10" maxlength="35" [(ngModel)]="newevent.description" #description="ngModel" name="description"
+                                        pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$"></textarea>
+
+                                    <small class="errorMessage" *ngIf="description.errors && description.errors.minlength">Description must be at least 10 characters long.</small>
+                                    <small class="errorMessage" *ngIf="description.errors && description.errors.maxlength"> Description be more than 30 charcters long.</small>
+                                    <small class="errorMessage" *ngIf="description.errors?.pattern"> Invalid pattern.</small>
+
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="assignto">Assign To &nbsp;&nbsp;:</label>
+                                    <div>
+                                        <ng-select [items]="staff$" bindLabel="name" autofocus class="ngselect-client"
+                                            bindValue="id" [(ngModel)]="newevent.staff" #caseClient="ngModel"
+                                            name="caseClient">
+                                        </ng-select>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-success btn-md fa fa-floppy-o" (click)="addNewEvent()"> &nbsp;&nbsp;Save &nbsp;&nbsp;</button>
+                            
+                            <button type="button" class="btn btn-secondary btn-md fa fa-eraser" (click)="reset()">&nbsp;&nbsp;Clear &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                           
+
+                        </div>
+                        <br>
+                        <br>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </div>
+
+
+    </div>
+</div>

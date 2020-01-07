@@ -1,0 +1,144 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+  <div class="col-sm-2 lessNavPading">
+    <app-left-menu></app-left-menu>
+  </div>
+  <div class="col-sm-10 backgroundLiange">
+    <div class="body">
+      <div class="container">
+        <div class="lft">
+          <div id="cssmenu">
+            <ul>
+              <li class="active">
+                <a routerLink='/staff/clerk-add'>User management</a>
+              </li>
+              <li>
+                <a routerLink='/staff'>All Staff</a>
+              </li>
+              <li>
+                <a routerLink='/home'>
+                  <i class="fa fa-home"></i> &nbsp; Home</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="row">
+        <label>Category &nbsp;:</label>
+        <div class="col-md-2">
+          <div class="form-group">
+            <select class="form-control form-control-sm" [(ngModel)]="selectedSearch" name="search">
+              <option *ngFor="let dc of dcategoryType " [value]="dc.value">{{dc.name}} </option>
+            </select>
+
+
+
+            <!-- <select class="form-control">
+          <option selected>Choose...</option>
+          <option value="1">Deed No</option>
+          <option value="2">Client Name</option>
+          <option value="3">Deed Type</option>
+          <option value="3">Property Type </option>
+        </select> -->
+
+
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <input class="form-control form-control-sm" *ngIf="selectedSearch=='firstname'" type="search"
+              placeholder="Enter search value" aria-label="Search" [(ngModel)]="searchDetails.firstname"
+              #searchNationality="ngModel">
+            <input class="form-control form-control-sm" *ngIf="selectedSearch=='lastname'" type="search"
+              placeholder="Enter search value" aria-label="Search" [(ngModel)]="searchDetails.lastname"
+              #searchNationality="ngModel">
+            <input class="form-control form-control-sm" *ngIf="selectedSearch=='nic'" type="search"
+              placeholder="Enter search value" aria-label="Search" [(ngModel)]="searchDetails.nic"
+              #searchNationality="ngModel">
+              <input class="form-control form-control-sm" *ngIf="selectedSearch=='email'" type="search"
+              placeholder="Enter search value" aria-label="Search" [(ngModel)]="searchDetails.email"
+              #searchNationality="ngModel">
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="container">
+        <div class="formstart">
+          <div class="rconner">
+            <span class="lawyer">
+              <i class="fa fa-plus"></i>
+              <i class="fa fa-user"></i>&nbsp;&nbsp;
+              <a routerLink='/staff/lawyer-add'>Add Lawyer </a>
+            </span>
+          </div>
+          <br>
+          <br>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+  
+                  <th scope="col">ID</th>
+                  <th scope="col">First name</th>
+                  <th scope="col">Last name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Contact No</th>
+                  <th scope="col">Designation </th>
+                  <th scope="col">Edit</th>
+                  <th scope="col">View</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+  
+              <tbody>
+                <tr *ngFor="let deed of staffs|deedFilter:searchDetails|paginate: { itemsPerPage: 13, currentPage: p}">
+                  <td>{{deed. id}}</td>
+                  <td>{{deed. firstname}}</td>
+                  <td>{{deed. lastname}}</td>
+                  <td>{{deed. email}}</td>
+                  <td>{{deed. daybookno}}</td>
+                  <td>{{deed. daybookdate}}</td>
+                  <td>{{deed. status}}</td>
+                  <td>
+                    <p data-placement="top" data-toggle="tooltip" title="Edit">
+                      <a routerLink='/deed/deed-update/{{deed.id}}'>
+                        <i class="fa fa-edit"></i></a>
+                    </p>
+                  </td>
+                  <td>
+                    <p data-placement="top" data-toggle="tooltip" title="View">
+                      <a routerLink="/deed/deed-view/{{deed.id}}">
+                        <i class="fa fa-info"></i>
+                      </a>
+                    </p>
+                  </td>
+  
+                  <td>
+                    <p data-placement="top" data-toggle="tooltip" title="Delete" (click)="deleteClient(deed)">
+                      <i class="fa fa-trash"></i>
+                    </p>
+                  </td>
+                </tr>
+                <tr class="NoResultFound" [hidden]='(staffs| deedFilter:searchDetails).length'>
+                  <td colspan="10">No Result Found</td>
+                </tr>
+                <br>
+                <tr class="pagginationContainer" style="background-color: lavenderblush;"
+                  [hidden]='!(staffs| deedFilter:searchDetails).length || (staffs| deedFilter:searchDetails).length < 13 '>
+                  <td colspan="10">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>

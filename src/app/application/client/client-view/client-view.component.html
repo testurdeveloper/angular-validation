@@ -1,0 +1,198 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+	<div class="col-sm-2 lessNavPading">
+		<app-left-menu></app-left-menu>
+	</div>
+	<div class="col-sm-10 backgroundLiange">
+		<div class="body">
+
+			<div class="container">
+				<div class="lft">
+					<div id="cssmenu">
+
+						<ul>
+							<li class="active">
+								<a href="#">Details Form</a>
+							</li>
+							<li>
+								<a routerLink='/client'>Client</a>
+							</li>
+							<li>
+								<a routerLink='/home'>
+									<i class="fa fa-home"></i>&nbsp; Home</a>
+							</li>
+
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+
+
+			<div class="container">
+				<div class="formstart">
+					<h2> Client Details </h2>
+					<br>
+					<br>
+					<br>
+					<form>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+
+
+									<span for="prefix">Prefix &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="prefix">&nbsp;&nbsp;{{clients.title}} </label>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<span for="firstname">First Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="firstname">&nbsp;&nbsp;{{clients.firstname}}</label>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="lastname">Last Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="lastname">&nbsp;&nbsp;{{clients.lastname}}</label>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="regno">Register No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="regno">&nbsp;&nbsp;{{clients.registernumber}}</label>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="nic">NIC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="nic">&nbsp;&nbsp;{{clients.nic}}</label>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+
+
+									<span for="gender">Gender&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              :</span>
+									<label id="gender">&nbsp;&nbsp;{{clients.gender}}</label>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="email">Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="email">&nbsp;&nbsp;{{clients.email}}</label>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="date"> Date Opend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="date">&nbsp;&nbsp;{{clients.dateopend}}</label>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="mobileno">Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="mobileno">&nbsp;&nbsp;{{clients.mobileno}}</label>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="phoneno">Phone Number&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="phoneno">&nbsp;&nbsp;{{clients.phoneno}}</label>
+								</div>
+							</div>
+						</div>
+
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<span for="address1">Address 1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span>
+									<label id="address1">&nbsp;&nbsp;{{clients.address1}}</label>
+								</div>
+							</div>
+
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="address2">Address 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="address2">&nbsp;&nbsp;{{clients.address2}}</label>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<span for="address3">Address 3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :</span>
+									<label id="address3">&nbsp;&nbsp;{{clients.address3}}</label>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="postalcode"> Postalcode&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+									<label id="postalcode">&nbsp;&nbsp;{{clients.postalcode}}</label>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<span for="matter">Matter Discription &nbsp;:</span>
+									<label id="matter">&nbsp;&nbsp;{{clients. mdescription}}</label>
+								</div>
+							</div>
+						</div>
+						<br>
+				
+            
+						<div class="btn-group">
+							<button type="button" class="btn btn-success btn-md fa fa-pencil" routerLink="/client/client-update/{{clients.id}}"> &nbsp;Update &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+							<button type="button" class="btn btn-danger btn-md fa fa-trash" (click)="deleteClient(clients)">&nbsp;&nbsp;  Delete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+
+						</div>
+					</form>
+				</div>
+			</div>
+			<br>
+			<br>
+</div>
+		</div>
+	</div>

@@ -1,0 +1,200 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+	<div class="col-sm-2 lessNavPading">
+		<app-left-menu></app-left-menu>
+	</div>
+	<div class="col-sm-10 backgroundLiange">
+    <div class="body">
+  <div class="container">
+    <div class="lft">
+      <div id="cssmenu">
+
+        <ul>
+          <li class="active">
+            <a href="#">Details Form</a>
+          </li>
+          <li>
+            <a routerLink='/case'>Case</a>
+          </li>
+          <li>
+            <a routerLink='/home'>
+              <i class="fa fa-home"></i>&nbsp; Home</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="container">
+    <div class="formstart">
+      <h2> Case Details </h2>
+      <br>
+      <br>
+      <form>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+
+              <span for="firmregno">Register No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="firmregno">&nbsp;&nbsp;{{cases.firmregno}}</label>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span for="caseno">Case No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="caseno">&nbsp;&nbsp;{{cases.caseno}}</label>
+            </div>
+          </div>
+        </div>
+
+
+        <br>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span for="casetitle">Case Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="casetitle">&nbsp;&nbsp;{{cases.casetitle}}</label>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+
+              <span for="oppsiteclient">Opposite Client Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="oppsiteclient">&nbsp;&nbsp;{{cases.oclientname}}</label>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+
+              <span for="oppositephone">Opposite Client Phone No &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="oppositephone">&nbsp;&nbsp;{{cases.oclientphone}}</label>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span for="oppsitelawyer">Opposite Lawyer Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="oppsitelawyer">&nbsp;&nbsp;{{cases.olawyername}}</label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span for="address">Opposite Lawyer Firm Address :</span>
+              <label id="address">&nbsp;&nbsp;{{cases.olawyerfirmaddress}}</label>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span for="oppositelphone">Opposite Lawyer Phone Numbers&nbsp;:</span>
+              <label id="oppositelphone">&nbsp;&nbsp;{{cases.olawyerphone}}</label>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+
+
+              <span for="court">Court&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                :
+              </span>
+              <label id="court">&nbsp;&nbsp;{{cases.court}}</label>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+
+              <span for="casetype">Case Type &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="casetype">&nbsp;&nbsp;{{cases.casetype}}</label>
+            </div>
+          </div>
+        </div>
+
+
+        <br>
+
+
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="form-group">
+
+              <span for="casestatus">Case Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="casestatus">&nbsp;&nbsp;{{cases.casestatus}}</label>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-6">
+            <div class="status">
+
+              <div class="form-group">
+                <span for="status">Opposite Client Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>&nbsp;
+                <label id="status">&nbsp;&nbsp;{{cases.ostatus}}</label>
+                <br>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span for="date"> Date Opend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="date">&nbsp;&nbsp;{{cases.dateopened}}</label>
+
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="form-group">
+              <span for="assigned">Assigned To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span>
+              <label id="assigned" *ngIf="cases && cases.assignedto">&nbsp;&nbsp;{{cases.assignedto.firstname}} {{cases.assignedto.lastname}}</label>
+
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+
+
+        <div class="btn-group">
+          <a  class="btn btn-success btn-md fa fa-pencil" routerLink="/case/case-update/{{cases.id}}"> &nbsp;Update &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <button type="button" class="btn btn-danger btn-md fa fa-trash" (click)="deleteClient(cases)">&nbsp;&nbsp; Delete&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+
+        </div>
+      </form>
+    </div>
+  </div>
+  <br>
+</div>
+  </div>
+</div>

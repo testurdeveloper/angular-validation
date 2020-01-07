@@ -1,0 +1,150 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+  <div class="col-sm-2 lessNavPading">
+    <app-left-menu></app-left-menu>
+  </div>
+  <div class="col-sm-10 backgroundLiange">
+    <div class="body">
+
+      <div class="container">
+        <div class="lft">
+          <div id="cssmenu">
+    
+            <ul>
+              <li class="active">
+                <a href="#">law Books</a>
+              </li>
+    
+              <li>
+                <a routerLink='/home'>
+                  <i class="fa fa-home"></i> &nbsp;&nbsp; Home</a>
+              </li>
+    
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+    
+      <div class="container" align="center">
+        <div class="heading">
+    
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    
+    
+      <div class="container">
+        <div class="formstart">
+          <H2>Law Books</H2>
+          <br>
+          <br>
+          <div class="rconner">
+    
+            <div class="form-group">
+              <span class="clerk">
+                <i class="fa fa-plus"></i>
+                <i class="fa fa-user"></i>&nbsp;&nbsp;
+                <a routerLink='/book/book-add'>Add Book </a>
+              </span> &nbsp;&nbsp; &nbsp;
+            </div>
+          </div>
+    
+          <div class="row">
+            <label>Category:</label>
+            <div class="col-md-2">
+              <div class="form-group">
+    
+                <select class="form-control form-control-sm" name="searchName" [(ngModel)]="selectedSearch"
+                  #searchName="ngModel">
+                  <option *ngFor="let srch of searchType " [value]="srch.value">{{srch.name}} </option>
+                </select>
+              </div>
+            </div>
+    
+            <div class="col-md-4">
+              <div class="form-group">
+                <input class="form-control form-control-sm"  type="search"
+                placeholder="Enter search value" aria-label="Search" [(ngModel)]="searchDetails.classification"
+                #searchNationality="ngModel">
+              </div>
+            </div>
+          </div>
+          <br>
+          <br>
+    
+          <div class="row">
+            <div class="col-md-4">
+    
+              <p>Fillted books Count :{{(books| bookFilter:searchDetails).length}}</p>
+    
+            </div>
+    
+            <div class="col-md-8">
+              <button type="button" class="btn btn-success btn-sm fa fa-refresh" id="refreshbutton">&nbsp; Refresh</button>
+            </div>
+          </div>
+    
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Year</th>
+                <th scope="col">Volume</th>
+                <th scope="col">classification</th>
+                <th scope="col">Added date</th>
+    
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr *ngFor="let book of books |bookFilter:searchDetails|paginate: { itemsPerPage: 13, currentPage: p}">
+                <td>{{book.name}}</td>
+                <td>{{book.year}}</td>
+                <td>{{book.volume}}</td>
+                <td>{{book.classification}}</td>
+                <td>{{book.addeddate}}</td>
+                <td>
+                  <p data-placement="top" data-toggle="tooltip" title="Edit">
+                    <a routerLink='/book/book-update/{{book.id}}'>
+                      <i class="fa fa-edit"></i>
+                    </a>
+                  </p>
+                </td>
+    
+                <td>
+                  <p data-placement="top" data-toggle="tooltip" title="Delete" (click)="deleteClient(book)">
+                    <i class="fa fa-trash"></i>
+                  </p>
+                </td>
+              </tr>
+              <tr class="NoResultFound" [hidden]='(books| bookFilter:searchDetails).length'>
+                <td colspan="10">No Result Found</td>
+              </tr>
+              <br>
+              <tr class="pagginationContainer" style="background-color: lavenderblush;"
+                [hidden]='!(books| bookFilter:searchDetails).length || (books| bookFilter:searchDetails).length < 13 '>
+                <td colspan="10">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    
+    
+    
+        </div>
+    
+      </div>
+      <br>
+    
+    </div>
+  </div>
+</div>

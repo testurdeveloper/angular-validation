@@ -1,0 +1,390 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+	<div class="col-sm-2 lessNavPading">
+		<app-left-menu></app-left-menu>
+	</div>
+  <div class="col-sm-10 backgroundLiange">
+    <div class="body">
+
+      <div class="container">
+        <div class="lft">
+          <div id="cssmenu">
+
+            <ul>
+              <li class="active">
+                <a routerLink='/adddeed'>New Deed Form</a>
+              </li>
+              <li>
+                <a routerLink='/dlist'>Deed</a>
+              </li>
+              <li>
+                <a routerLink='/home'>
+                  <i class="fa fa-home"></i>&nbsp; Home</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+      <br>
+
+      <div class="container">
+        <div class="formstart">
+          <H2>New Deed</H2>
+          <br>
+          <br>
+          <form>
+            <div class="row">
+              <div>
+                <div class="form-group">
+                  <label> Client Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <div class="input-group">
+
+                    <div>
+                      <ng-select [items]="people$" bindLabel="name" autofocus class="ngselect-client" bindValue="id"
+                        [(ngModel)]="user.client" #caseClient="ngModel" name="caseClient">
+                      </ng-select>
+
+                    </div>
+                    <span class="input-group-btn">
+
+                      <a class="btn btn-info btn-sm fa fa-folder-open" *ngIf="user && user.client"
+                        routerLink="/client/client-view/{{user.client}}"> View
+                        details </a>
+
+                      <button class="btn btn-info btn-sm fa fa-folder-open" disabled *ngIf="!(user && user.client )" a
+                        data-toggle="modal" data-target="#AddNewClient">  View details </button>
+
+                      <a class="btn btn-info btn-sm fa fa-plus" style="margin-left:10px"
+                        routerLink="/client/client-add">  Add New Client</a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+
+                  <label for="inputdefault">Deed
+                    No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+
+                  <input class="form-control form-control-sm" [ngClass]="!deedno.errors?'is-valid':'is-invalid'"
+                    type="text" id="deedno" required minlength="4" maxlength="6" [(ngModel)]="user.deedno"
+                    #deedno="ngModel" name="deedno" pattern="^[0-9]{1,5}$">
+
+                  <small class="errorMessage" *ngIf="deedno.errors && deedno.errors.required">Deed Fee is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="deedno.errors && deedno.errors.minlength">Deed Fee must be at least
+                    4
+                    characters long.</small>
+                  <small class="errorMessage" *ngIf="deedno.errors && deedno.errors.maxlength"> Deed Fee be more than 6
+                    charcters long.</small>
+                  <small class="errorMessage" *ngIf="deedno.errors && deedno.errors.pattern"> Invalid pattern.</small>
+
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+
+                <label for="date"> Date Opend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                <input class="form-control form-control-sm" type="date" id="dateopend" name="dateopend" #dateopend="ngModel"
+                  [(ngModel)]="user.dateopend">
+
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="inputdefault">Amount
+                    Rs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input class="form-control form-control-sm" [ngClass]="!deedfee.errors?'is-valid':'is-invalid'"
+                    type="text" id="example-Fee-input" required minlength="4" maxlength="6" [(ngModel)]="user.deedfee"
+                    #deedfee="ngModel" name="deedfee" pattern="^[0-9]{1,5}$">
+                  <small class="errorMessage" *ngIf="deedfee.errors && deedfee.errors.required">Deed Fee is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="deedfee.errors && deedfee.errors.minlength">Deed Fee must be at
+                    least 4
+                    characters long.</small>
+                  <small class="errorMessage" *ngIf="deedfee.errors && deedfee.errors.maxlength"> Deed Fee be more than
+                    6
+                    charcters long.</small>
+                  <small class="errorMessage" *ngIf="deedfee.errors?.pattern"> Invalid pattern.</small>
+
+                </div>
+              </div>
+
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Property Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+
+
+                  <select class="form-control form-control-sm" #propertytype="ngModel" [(ngModel)]="user.propertytype" name="propertytype">
+                    <option *ngFor="let prptype of propertyType" [value]="prptype">{{prptype}} </option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+
+                  <label>Deed Type
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <select class="form-control form-control-sm" #deedtype="ngModel" [(ngModel)]="user.deedtype" name="deedtype">
+                    <option *ngFor="let dedype of deedType" [value]="dedype">{{dedype}} </option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="inputdefault">Daybook No&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input class="form-control form-control-sm" [ngClass]="!daybookno.errors?'is-valid':'is-invalid'"
+                    type="text" id="example-number-input" required minlength="4" maxlength="6"
+                    [(ngModel)]="user.daybookno" #daybookno="ngModel" name="daybookno" pattern="^[0-9]{1,5}$">
+                  <small class="errorMessage" *ngIf="daybookno.errors && daybookno.errors.required">Daybook Number is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="daybookno.errors && daybookno.errors.minlength">Daybook Number must
+                    be
+                    at least 4 characters long.</small>
+                  <small class="errorMessage" *ngIf="daybookno.errors && daybookno.errors.maxlength"> Daybook Number be
+                    more
+                    than 6 charcters long.</small>
+                  <small class="errorMessage" *ngIf="daybookno.errors?.pattern"> Invalid pattern.</small>
+
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="date"> Datebook
+                    Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input class="form-control form-control-sm" type="date" id="Datebook" [(ngModel)]="user.daybookdate"
+                    name="Datebook" #Datebook="ngModel">
+                </div>
+              </div>
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="date"> Recieved Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input class="form-control form-control-sm" type="date" id="recievedate"
+                    [(ngModel)]="user.recievedate" name="recievedate" #recievedate="ngModel">
+                </div>
+              </div>
+            </div>
+            <br>
+
+
+
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="propertyaddress">Property
+                    Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <textarea class="form-control" [ngClass]="!propertyaddress.errors?'is-valid':'is-invalid'"
+                    id="exampleFormControlTextarea2" rows="3" required minlength="10" maxlength="35"
+                    [(ngModel)]="user.propertyaddress" #propertyaddress="ngModel" name="propertyaddress"
+                    pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$"></textarea>
+                  <small class="errorMessage" *ngIf="propertyaddress.errors && propertyaddress.errors.required">Address
+                    1 is
+                    required!</small>
+                  <small class="errorMessage" *ngIf="propertyaddress.errors && propertyaddress.errors.minlength">Address
+                    1
+                    must be at least 10 characters long.</small>
+                  <small class="errorMessage" *ngIf="propertyaddress.errors && propertyaddress.errors.maxlength">
+                    Address 1
+                    be more than 30 charcters long.</small>
+                  <small class="errorMessage" *ngIf="propertyaddress.errors?.pattern"> Invalid pattern.</small>
+
+
+                  <br>
+                  <br>
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+
+                  <label
+                    for="status">Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    :
+                  </label>&nbsp; &nbsp;
+                  <input type="radio" name="pending" value="pending" [(ngModel)]="user.status"> Pending &nbsp;
+                  &nbsp;
+                  <input type="radio" name="pending" value="recieved" [(ngModel)]="user.status"> Recieved
+                  <br>
+
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <br> -------------------------------------
+            <B>OPPOSITE CLIENT'S DETAILS -------------------------------------------</B>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+
+                  <label for="inputdefault"> First Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <input type="text" class="form-control form-control-sm "
+                    [ngClass]="!oppositeclientname.errors?'is-valid':'is-invalid'" id="name" required minlength="5"
+                    maxlength="30" placeholder="R.T" [(ngModel)]="user.oppositeclientname" #oppositeclientname="ngModel"
+                    name="oppositeclientname" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$">
+                  <small class="errorMessage"
+                    *ngIf="oppositeclientname.errors && oppositeclientname.errors.required">First
+                    Name is required!</small>
+                  <small class="errorMessage"
+                    *ngIf="oppositeclientname.errors && oppositeclientname.errors.minlength">First
+                    Name must be at least 5 characters long.</small>
+                  <small class="errorMessage" *ngIf="oppositeclientname.errors && oppositeclientname.errors.maxlength">
+                    First Name be more than 30 charcters long.</small>
+                  <small class="errorMessage" *ngIf="oppositeclientname.errors?.pattern"> Invalid pattern.</small>
+                </div>
+              </div>
+
+
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="inputdefault">Phone Number &nbsp; :</label>
+                  <input type="text" class="form-control form-control-sm"
+                    [ngClass]="!oppositeclientphone.errors?'is-valid':'is-invalid'" id="phone" required minlength="10"
+                    maxlength="10"  [(ngModel)]="user.oppositeclientphone"
+                    #oppositeclientphone="ngModel" name="oppositeclientphone" pattern="^[0-9]{1,10}$">
+                  <small class="errorMessage"
+                    *ngIf="oppositeclientphone.errors && oppositeclientphone.errors.required">Phone Number is
+                    required!</small>
+                  <small class="errorMessage"
+                    *ngIf="oppositeclientphone.errors && oppositeclientphone.errors.minlength">Phone Number must be at
+                    least
+                    10 characters long.</small>
+                  <small class="errorMessage"
+                    *ngIf="oppositeclientphone.errors && oppositeclientphone.errors.maxlength">
+                    Phone Number be more than 30 charcters long.</small>
+                  <small class="errorMessage" *ngIf="oppositeclientphone.errors?.pattern"> Invalid pattern.</small>
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label for="address">
+                    Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                  <textarea class="form-control" [ngClass]="!oppositeclientaddress.errors?'is-valid':'is-invalid'"
+                    id="exampleFormControlTextarea2" rows="3" required minlength="10" maxlength="35"
+                     [(ngModel)]="user.oppositeclientaddress" #oppositeclientaddress="ngModel"
+                    name="oppositeclientaddress" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$"></textarea>
+                  <small class="errorMessage"
+                    *ngIf="oppositeclientaddress.errors && oppositeclientaddress.errors.required">Address 1 is
+                    required!</small>
+                  <small class="errorMessage"
+                    *ngIf="oppositeclientaddress.errors && oppositeclientaddress.errors.minlength">Address 1 must be at
+                    least 10 characters long.</small>
+                  <small class="errorMessage"
+                    *ngIf="oppositeclientaddress.errors && oppositeclientaddress.errors.maxlength"> Address 1 be more
+                    than
+                    30 charcters long.</small>
+                  <small class="errorMessage" *ngIf="oppositeclientaddress.errors?.pattern"> Invalid pattern.</small>
+
+                </div>
+              </div>
+            </div>
+
+
+            <br>
+            <br>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Fee Type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    :</label>
+                  <ul class="list-unstyled">
+                    <li>
+                      <label>
+                        <input type="checkbox" class="all" [(ngModel)]="user.allfee" #feeAll="ngModel"
+                        name="feeAll" > All</label>
+                    </li>
+                    <li>
+                      <hr>
+                    </li>
+                    <li>
+                      <label>
+                        <input type="checkbox" name="casual_dating" #feeAllfee="ngModel"
+                        name="feeAllfee" [(ngModel)]="user.lawyerfee"> Lawyer Fee</label>
+                    </li>
+                    <li>
+                      <label>
+                        <input type="checkbox" name="serious_commitment" #feeAllfeeStamp="ngModel"
+                        name="feeAllfeeStamp" [(ngModel)]="user.stampfee"> Stamp
+                        Fee</label>
+                    </li>
+                    <li>
+                      <label>
+                        <input type="checkbox" name="companionship" #feeAllfeeDocument="ngModel"
+                        name="feeAllfeeDocument" [(ngModel)]="user.documentfee"> Document Fee</label>
+                    </li>
+                    <li>
+                      <label>
+                        <input type="checkbox" name="hookups"  #feeAllfeeTyping="ngModel"
+                        name="feeAllfeeTyping" [(ngModel)]="user.typingfee"> Typing Fee</label>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <button type="button" class="btn btn-link" (click)="downloadTemplate()">CLICK HERE TO DEED FORMAT
+                  </button>
+
+                </div>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="btn-group">
+              <button type="button" class="btn btn-success btn-sm" (click)="saveDetails()">
+                <i class="fa fa-floppy-o" ></i> &nbsp;Save </button>
+
+              <button type="button" class="btn btn-secondary btn-sm">Clear </button>
+
+
+            </div>
+            <br>
+            <br>
+          </form>
+        </div>
+
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

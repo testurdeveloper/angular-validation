@@ -1,0 +1,401 @@
+<app-top-navbar></app-top-navbar>
+<div class="row">
+	<div class="col-sm-2 lessNavPading">
+		<app-left-menu></app-left-menu>
+	</div>
+	<div class="col-sm-10 backgroundLiange">
+		<div class="body">
+			<div class="container">
+				<div class="lft">
+					<div id="cssmenu">
+						<ul>
+							<li class="active">
+								<a routerLink='/addcase'>New case</a>
+							</li>
+							<li>
+								<a routerLink='/case'>Case</a>
+							</li>
+							<li>
+								<a routerLink='/home'>
+									<i class="fa fa-home"></i> &nbsp; Home</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div class="container">
+				<div class="formstart">
+					<H2>New Case Form</H2>
+					<br>
+					<br>
+					<form>
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="form-group">
+									<label>Client
+										Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<div class="input-group">
+
+										<div>
+											<ng-select [items]="people$" bindLabel="name" autofocus class="ngselect-client"
+												bindValue="id" [(ngModel)]="addcase.client" #caseClient="ngModel"
+												name="caseClient">
+											</ng-select>
+
+										</div>
+
+										<span class="input-group-btn">
+
+											<a class="btn btn-info btn-sm fa fa-folder-open"
+												*ngIf="addcase && addcase.client"
+												routerLink="/client/client-view/{{addcase.client}}"> View
+												details </a>
+
+											<button class="btn btn-info btn-sm fa fa-folder-open" disabled
+												*ngIf="!(addcase && addcase.client )" a
+												data-toggle="modal" data-target="#AddNewClient">  View details </button>
+
+											<a class="btn btn-info btn-sm fa fa-plus" style="margin-left:10px"
+												routerLink="/client/client-add">  Add New Client</a>
+
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<label for="firmregno">Register No
+										&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<input class="form-control form-control-sm"
+										[ngClass]="!firmregno.errors?'is-valid':'is-invalid'" type="text"
+										id="example-number-input" required minlength="5" maxlength="30"
+										[(ngModel)]="addcase.firmregno" #firmregno="ngModel"
+										name="firmregno" pattern="^[0-9]{1,5}$">
+									<small class="errorMessage"
+										*ngIf="firmregno.errors && firmregno.errors.required">Register Number
+										is required!</small>
+									<small class="errorMessage"
+										*ngIf="firmregno.errors && firmregno.errors.minlength">Register Number
+										must be at least 5 characters long.</small>
+									<small class="errorMessage"
+										*ngIf="firmregno.errors && firmregno.errors.maxlength"> Register
+										Number be more than 30 charcters long.</small>
+									<small class="errorMessage" *ngIf="firmregno.errors?.pattern"> Invalid
+										pattern.</small>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="caseno">Case
+										No&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<input class="form-control form-control-sm"
+										[ngClass]="!caseno.errors?'is-valid':'is-invalid'" type="text" value="42"
+										id="example-number-input" required minlength="5" maxlength="30"
+										[(ngModel)]="addcase.caseno" #caseno="ngModel" name="caseno"
+										pattern="^[0-9]{1,5}$">
+									<small class="errorMessage" *ngIf="caseno.errors && caseno.errors.required">Case
+										Number is required!</small>
+									<small class="errorMessage" *ngIf="caseno.errors && caseno.errors.minlength">Case
+										Number must be at least 5 characters long.</small>
+									<small class="errorMessage" *ngIf="caseno.errors && caseno.errors.maxlength"> Case
+										Number be more than 30 charcters long.</small>
+									<small class="errorMessage" *ngIf="caseno.errors?.pattern"> Invalid pattern.</small>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<label for="casetitle">Case
+										Title&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<input type="text" class="form-control form-control-sm" required
+										[(ngModel)]="addcase.casetitle" #casetitle="ngModel" name="casetitle">
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<label>Court&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									:
+								</label>
+								<select class="form-control form-control-sm" [(ngModel)]="addcase.court"
+									#registercourt="ngModel" name="registercourt">
+									<option selected>--Choose--</option>
+									<option value="Primary Court">Primary Court</option>
+									<option value="Magistrate Court">Magistrate Court</option>
+									<option value="District Court">District Court</option>
+									<option value="High Court">High Court</option>
+									<option value="Appeal Court">Appeal Court</option>
+									<option value="Suprime Court">Suprime Court</option>
+								</select>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<label>Case Type
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<select class="form-control form-control-sm" [(ngModel)]="addcase.casetype"
+										#registercasetype="ngModel" name="registercasetype" name="casetype">
+										<option selected>--Choose--</option>
+										<option value="Land">Land</option>
+										<option value="Money">Money</option>
+										<option value="Divorce">Divorce</option>
+										<option value="Partition">Partition</option>
+										<option value="Adoption">Adoption</option>
+										<option value="Testamentory">Testamentory</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<label>Case
+										Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<select class="form-control form-control-sm" required
+										[(ngModel)]="addcase.casestatus" #registercasestatus="ngModel"
+										name="registercasestatus" name="casestatus">
+										<option selected disabled>--Choose--</option>
+										<option value="Open">Open
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</option>
+										<option value="Close">Close</option>
+										<option value="Pending">Pending</option>
+
+									</select>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="date"> Date
+										Opend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<input class="form-control form-control-sm" type="date" id="example-date-input"
+										required [(ngModel)]="addcase.dateopened" #registerdateopened="ngModel"
+										name="registerdateopened" name="dateopened">
+
+								</div>
+							</div>
+
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label>Assigned
+										To&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<div class="input-group">
+
+										<div>
+											<ng-select [items]="staff$" bindLabel="name" autofocus class="ngselect-client"
+												bindValue="id" [(ngModel)]="addcase.assignedto" #caseClient="ngModel"
+												name="caseClient">
+											</ng-select>
+
+										</div>
+
+										<span class="input-group-btn">
+											<!-- <button class="btn btn-info btn-sm fa fa-folder-open" type="submit" a routerLink='/staff'>  View details  </button> -->
+											<a class="btn btn-info btn-sm fa fa-folder-open"
+												*ngIf="addcase && addcase.assignedto && addcase.assignedto"
+												routerLink="/staff/view-details/{{addcase.assignedto}}"> View
+												details </a>
+
+											<button class="btn btn-info btn-sm fa fa-folder-open" disabled
+												*ngIf="!(addcase && addcase.assignedto)" a
+												data-toggle="modal" data-target="#AddNewClient">  View details </button>
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<br>
+						<br>
+						<br> -------------------------------------
+						<B>OPPOSITE CLIENT'S DETAILS --------------------------------</B>
+						<br>
+						<br>
+						<br>
+						<br>
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<label for="oppsiteclient">Opposite Client Name
+										&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<input type="text" class="form-control form-control-sm "
+										[ngClass]="!oclientname.errors?'is-valid':'is-invalid'" required
+										minlength="5" maxlength="30" placeholder="Shanuka Perera"
+										[(ngModel)]="addcase.oclientname" #oclientname="ngModel"
+										name="oclientname" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$">
+									<small class="errorMessage"
+										*ngIf="oclientname.errors && oclientname.errors.required">Last
+										Name is required!</small>
+									<small class="errorMessage"
+										*ngIf="oclientname.errors && oclientname.errors.minlength">Last
+										Name must be at least 5 characters long.</small>
+									<small class="errorMessage"
+										*ngIf="oclientname.errors && oclientname.errors.maxlength"> Last
+										Name be more than 30 charcters long.</small>
+									<small class="errorMessage" *ngIf="oclientname.errors?.pattern"> Invalid
+										pattern.</small>
+								</div>
+							</div>
+
+
+							<div class="col-lg-6">
+								<div class="form-group">
+
+									<label for="oppositephone">Opposite Client Phone No
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<input type="text" class="form-control form-control-sm"
+										[ngClass]="!oclientphone.errors?'is-valid':'is-invalid'" id="phone" required
+										minlength="10" maxlength="10" [(ngModel)]="addcase.oclientphone"
+										#oclientphone="ngModel" name="oclientphone" pattern="^[0-9]{1,10}$">
+									<small class="errorMessage"
+										*ngIf="oclientphone.errors && oclientphone.errors.required">Phone Number is
+										required!</small>
+									<small class="errorMessage"
+										*ngIf="oclientphone.errors && oclientphone.errors.minlength">Phone Number must be
+										at least 10 characters long.</small>
+									<small class="errorMessage"
+										*ngIf="oclientphone.errors && oclientphone.errors.maxlength"> Phone Number be more
+										than 30 charcters long.</small>
+									<small class="errorMessage" *ngIf="oclientphone.errors?.pattern"> Invalid
+										pattern.</small>
+
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="oppsitelawyer">Opposite Lawyer Name
+										&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+									<input type="text" class="form-control form-control-sm "
+										[ngClass]="!olawyername.errors?'is-valid':'is-invalid'" required minlength="5"
+										maxlength="30" [(ngModel)]="addcase.olawyername" #olawyername="ngModel"
+										name="olawyername" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$">
+									<small class="errorMessage"
+										*ngIf="olawyername.errors && olawyername.errors.required">Last Name is
+										required!</small>
+									<small class="errorMessage"
+										*ngIf="olawyername.errors && olawyername.errors.minlength">Last Name must be at
+										least 5 characters long.</small>
+									<small class="errorMessage"
+										*ngIf="olawyername.errors && olawyername.errors.maxlength"> Last Name be more
+										than 30 charcters long.</small>
+									<small class="errorMessage" *ngIf="olawyername.errors?.pattern"> Invalid
+										pattern.</small>
+								</div>
+							</div>
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="address">Opposite Lawyer Firm Address :</label>
+									<textarea class="form-control"
+										[ngClass]="!olawyerfirmaddress.errors?'is-valid':'is-invalid'"
+										id="exampleFormControlTextarea2" rows="3" required minlength="10" maxlength="35"
+										[(ngModel)]="addcase.olawyerfirmaddress" #olawyerfirmaddress="ngModel"
+										name="olawyerfirmaddress" pattern="^([a-zA-Z]+\s)*[a-zA-Z]+$"></textarea>
+									<small class="errorMessage"
+										*ngIf="olawyerfirmaddress.errors && olawyerfirmaddress.errors.required">Address is
+										required!</small>
+									<small class="errorMessage"
+										*ngIf="olawyerfirmaddress.errors && olawyerfirmaddress.errors.minlength">Address must be
+										at least 10 characters long.</small>
+									<small class="errorMessage"
+										*ngIf="olawyerfirmaddress.errors && olawyerfirmaddress.errors.maxlength"> Address be
+										more than 30 charcters long.</small>
+									<small class="errorMessage" *ngIf="olawyerfirmaddress.errors?.pattern"> Invalid
+										pattern.</small>
+								</div>
+							</div>
+						</div>
+						<br>
+
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="form-group">
+									<label for="oppositelphone">Opposite Lawyer Phone Numbers&nbsp;*:</label>
+									<input type="text" class="form-control form-control-sm"
+										[ngClass]="!olawyerphone.errors?'is-valid':'is-invalid'" id="phone" required
+										minlength="10" maxlength="10" [(ngModel)]="addcase.olawyerphone"
+										#olawyerphone="ngModel" name="olawyerphone" pattern="^[0-9]{1,10}$">
+									<small class="errorMessage"
+										*ngIf="olawyerphone.errors && olawyerphone.errors.required">Opposite Lawyer
+										Phone Number is required!</small>
+									<small class="errorMessage"
+										*ngIf="olawyerphone.errors && olawyerphone.errors.minlength"> Opposite Lawyer
+										Phone Number must be at least 10 characters long.</small>
+									<small class="errorMessage"
+										*ngIf="olawyerphone.errors && olawyerphone.errors.maxlength"> Opposite Lawyer
+										Phone Number be more than 30 charcters long.</small>
+									<small class="errorMessage" *ngIf="olawyerphone.errors?.pattern"> Invalid
+										pattern.</small>
+
+								</div>
+							</div>
+
+
+							<div class="col-lg-6">
+
+								<div class="status">
+
+									<div class="form-group">
+										<label for="status">Opposite Client Status
+											&nbsp;&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>&nbsp;
+										&nbsp;
+										<br>
+										<input type="radio" name="status" value="Plaintiff" required
+											[(ngModel)]="addcase.ostatus"> Plaintiff &nbsp; &nbsp;
+										<input type="radio" name="status" value="Defendent" required
+											[(ngModel)]="addcase.ostatus"> Defendent
+										<br>
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+						<br>
+						<br>
+						<div class="btn-group">
+							<button type="button" class="btn btn-success btn-md fa fa-floppy-o"
+								(click)="navigateTocasepayment()" id="cbutton" (click)="saveDetails()"> &nbsp;&nbsp;Save
+								& Next</button>
+
+							<button type="button" class="btn btn-secondary btn-md fa fa-eraser" style="margin-left:10px"
+								id="cbutton" (click)="clear()">&nbsp;&nbsp;Clear</button>
+
+						</div>
+						<br>
+						<br>
+					</form>
+				</div>
+
+			</div>
+			<br>
+
+		</div>
+	</div>
+</div>
